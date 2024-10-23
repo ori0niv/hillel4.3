@@ -2,9 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>hillel 4.3</title>
 </head>
+<script>
+  function askUserInfo() {
+    let currentYear = new Date().getFullYear();
+
+    let birthYear = prompt("Введіть ваш рік народження:");
+    if (birthYear === null) {
+      alert("Шкода, що Ви не захотіли ввести свій рік народження.");
+      return;
+    }
+
+    let age = currentYear - birthYear;
+
+    let city = prompt("Введіть місто, в якому ви живете:");
+    if (city === null) {
+      alert("Шкода, що Ви не захотіли ввести своє місто.");
+      return;
+    }
+
+    let sport = prompt("Введіть ваш улюблений вид спорту:");
+    if (sport === null) {
+      alert("Шкода, що Ви не захотіли ввести свій улюблений вид спорту.");
+      return;
+    }
+
+    let cityMessage;
+    if (city.toLowerCase() === "київ") {
+      cityMessage = "Ти живеш у столиці України.";
+    } else if (city.toLowerCase() === "вашингтон") {
+      cityMessage = "Ти живеш у столиці США.";
+    } else if (city.toLowerCase() === "лондон") {
+      cityMessage = "Ти живеш у столиці Великої Британії.";
+    } else {
+      cityMessage = `Ти живеш у місті ${city}.`;
+    }
+
+    let sportMessage;
+    let champions = {
+      "футбол": "Ліонель Мессі",
+      "баскетбол": "Майкл Джордан",
+      "теніс": "Рафаель Надаль"
+    };
+
+    if (champions[sport.toLowerCase()]) {
+      sportMessage = `Круто! Хочеш стати ${champions[sport.toLowerCase()]}?`;
+    } else {
+      sportMessage = `Твій улюблений вид спорту: ${sport}.`;
+    }
+
+    alert(`Ваш вік: ${age}\n${cityMessage}\n${sportMessage}`);
+  }
+
+  askUserInfo();
+</script>
 <body>
-$END$
+
 </body>
 </html>
